@@ -1,9 +1,5 @@
 #ifndef UTILS_H
 #define UTILS_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 
 typedef struct {
     char modo;
@@ -14,6 +10,14 @@ EntradaUsuario Menu();
 void preencherCrescente(int *vetor, int tamanho);
 void preencherDecrescente(int *vetor, int tamanho);
 void preencherRandomico(int *vetor, int tamanho);
+void gerar_crescente(const char* nome, int n);
+void gerar_decrescente(const char* nome, int n);
+void gerar_random(const char* nome, int n);
+void criar_pasta();
+
+#endif // UTILS_H
 
 
-#endif  
+
+
+

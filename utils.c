@@ -1,4 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <windows.h>
 #include "utils.h"
+
+#define DIR "C:/arquivodeentrada/"
+
+void gerar_crescente(const char* nome, int n) {
+    char caminho_arquivo[256];
+    snprintf(caminho_arquivo, sizeof(caminho_arquivo), "%s%s", DIR, nome);
+    FILE* f = fopen(caminho_arquivo, "w");
+    for (int i = 1; i <= n; i++) {
+        fprintf(f, "%d\n", i);
+    }
+    fclose(f);
+}
+
+void gerar_decrescente(const char* nome, int n) {
+    char caminho_arquivo[256];
+    snprintf(caminho_arquivo, sizeof(caminho_arquivo), "%s%s", DIR, nome);
+    FILE* f = fopen(caminho_arquivo, "w");
+    for (int i = n; i >= 1; i--) {
+        fprintf(f, "%d\n", i);
+    }
+    fclose(f);
+}
+
+void gerar_random(const char* nome, int n) {
+    char caminho_arquivo[256];
+    snprintf(caminho_arquivo, sizeof(caminho_arquivo), "%s%s", DIR, nome);
+    FILE* f = fopen(caminho_arquivo, "w");
+    for (int i = 0; i < n; i++) {
+        fprintf(f, "%d\n", rand() % (n * 10));
+    }
+    fclose(f);
+}
+
+void criar_pasta() {
+    CreateDirectoryA(DIR, NULL);
+}
 
 EntradaUsuario Menu() {
     EntradaUsuario entrada;
